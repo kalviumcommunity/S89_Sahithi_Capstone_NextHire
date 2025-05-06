@@ -10,4 +10,4 @@ const jobBoardSchema = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model('joBoard', jobBoardSchema);
+module.exports = mongoose.model('jobBoard', jobBoardSchema);
