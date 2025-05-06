@@ -32,6 +32,21 @@ jobBoardRouter.post('/postJobBoard',async (req, res) => {
     }
   });
 
+jobBoardRouter.put("/updateJobBoard/:id",async(req,res)=>{
+          try {
+              const{id}=req.params;
+              if(!id){
+                  res.status(400).send({msg:"Please provide id"});
+              }
+              const {role,company,salary,place}=req.body;
+              const updatedJobBoard = await jobBoard.findByIdAndUpdate({_id:id},{role,company,salary,place});
+              res.status(200).send({msg:"Data updated successfully",job:updatedJobBoard});
+          } catch (error) {
+              console.log(error)
+              res.status(500).send({msg:"Error updating data"})
+          }
+      });
+
 
 
 module.exports = jobBoardRouter;
