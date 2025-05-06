@@ -38,8 +38,8 @@ interviewQuestionsRouter.post('/postInterviewQuestion',async (req, res) => {
         if(!id){
             res.status(400).send({msg:"Please provide id"});
         }
-        const {questin,answer}=req.body;
-        const updatedInterviewQuestion = await InterviewQuestion.findByIdAndUpdate({_id:id},{questin,answer});
+        const {question,answer}=req.body;
+        const updatedInterviewQuestion = await InterviewQuestion.findByIdAndUpdate({_id:id},{question,answer});
         res.status(200).send({msg:"Data updated successfully",question:updatedInterviewQuestion});
     } catch (error) {
         console.log(error)
