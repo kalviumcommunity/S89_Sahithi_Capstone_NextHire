@@ -8,12 +8,12 @@ dotenv.config();
 
 app.use(express.json());
 
-const interviewQuestionRouter = require("./controller/interviewQuestionsRouter");
+const interviewQuestionsRouter = require("./controller/interviewQuestionsRouter");
 const jobBoardRouter = require("./controller/jobBoardRouter");
 const companyWiseQuestionRouter = require("./controller/companyWiseQuestionsRouter");
 
 
-app.use("/interviewQuestion",interviewQuestionRouter);
+app.use("/interviewQuestion", interviewQuestionsRouter);
 app.use("/jobBoard",jobBoardRouter);
 app.use("/companyWiseQuestion",companyWiseQuestionRouter);
 
