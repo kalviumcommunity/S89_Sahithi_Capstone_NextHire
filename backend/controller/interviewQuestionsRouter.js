@@ -1,7 +1,8 @@
 const express = require('express');
-const interviewQuestionRouter = express.Router();
+const interviewQuestionsRouter = express.Router();
+const InterviewQuestion = require('../models/interviewQuestionsSchema');
 
-interviewQuestionRouter.get('/interviewQuestion', async (req, res) => {
+interviewQuestionsRouter.get('/interviewQuestion', async (req, res) => {
     try {
         const interviewQuestion = [
             { Question: 'What is the full form of HTML?', answer: 'Hypertext Markup Language' },
@@ -15,19 +16,23 @@ interviewQuestionRouter.get('/interviewQuestion', async (req, res) => {
     }
 });
 
-interviewQuestionRouter.put("/updateIQuestion/:id",async(req,res)=>{
+interviewQuestionsRouter.post('/postInterviewQuestion',async (req, res) => {
     try {
-        const{id}=req.params;
-        if(!id){
-            res.status(400).send({msg:"Please provide id"});
-        }
-        const {question,answer}=req.body;
-        const updatedInterviewQuestion = await interviewQuestion.findByIdAndUpdate({_id:id},{questin,answer});
-        res.status(200).send({msg:"Data updated successfully",question:updatedInterviewQuestion});
+      const {question,answer} = req.body;
+      if(!question || !answer){
+        return res.status(400).send({msg:"Please fill question and answer"});
+      }
+      const newInterviewQuestion = new InterviewQuestion({ question, answer });
+      await newInterviewQuestion.save();
+      res.status(201).json({ message: 'interview question posted successfully!', questions: newInterviewQuestion });
     } catch (error) {
-        console.log(error)
-        res.status(500).send({msg:"Error updating data"})
+      console.log(error);
+      res.status(500).json({ message: 'Error posting question', error });
+      
     }
-});
+  });
 
-module.exports = interviewQuestionRouter;
+
+
+
+  module.exports = interviewQuestionsRouter;

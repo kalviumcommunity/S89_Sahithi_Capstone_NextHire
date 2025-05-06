@@ -1,21 +1,11 @@
 const mongoose = require("mongoose");
+const { post } = require("../controller/companyWiseQuestionsRouter");
 
 const companyWiseQuestionsSchema = new mongoose.Schema({
-    company_Name:{
-        type: String,
-        required: true 
-    },
-    role:{
-        type: String,
-        required:true
-    },
-    range:{
-        type: String,
-        required: true
-    }
+    question: { type: String, required: true },
+    answer: { type: String, required: true }
     
 });
 
 
-const Questions = mongoose.modek("Questions",)
-module.exports = companyWiseQuestionsSchema
+module.exports = mongoose.model('CompanyWiseQuestion', companyWiseQuestionsSchema);

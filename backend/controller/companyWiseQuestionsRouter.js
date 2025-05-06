@@ -1,5 +1,6 @@
 const express = require('express');
 const companyWiseQuestionRouter = express.Router();
+const CompanyWiseQuestion = require('../models/companyWiseQuestionsSchema'); 
 
 companyWiseQuestionRouter.get('/companyWiseQuestion', async (req, res) => {
     try {
@@ -15,22 +16,16 @@ companyWiseQuestionRouter.get('/companyWiseQuestion', async (req, res) => {
     }
 });
 
-companyWiseQuestionRouter.put("/updateQuestion/:id",async(req,res)=>{
-    try {
-        const {id} = req.params;
-        if(!id){
-            res.status(400).send({msg:"Please provide id"});
-        }
-        const {question , answer}=req.body;
-        const updateQuestion = await Question.findByIdAndUpdate({_id:id},{question,answer});
-        res.status(200).send({msg:"Question updated successfully",Question:updatedQustion});
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({msg:"Error updating data"})
-    }
+companyWiseQuestionRouter.post('/postCompanyWiseQuestion', async (req, res) => {
+  try {
+      const { question, answer } = req.body;
+      const newCompanyWiseQuestion = new CompanyWiseQuestion({ question, answer });
+      await newCompanyWiseQuestion.save();
+      res.status(201).json({ message: 'Company-wise question posted successfully!', data: newCompanyWiseQuestion });
+  } catch (error) {
+      console.error('Error posting question:', error);
+      res.status(500).json({ message: 'Error posting question', error });
+  }
 });
-
-
-
 
 module.exports = companyWiseQuestionRouter;
