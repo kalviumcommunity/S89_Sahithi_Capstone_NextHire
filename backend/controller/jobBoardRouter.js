@@ -47,6 +47,50 @@ jobBoardRouter.put("/updateJobBoard/:id",async(req,res)=>{
           }
       });
 
+jobBoardRouter.delete("/deletejobBoard/:id",async(req,res)=>{
+  try {
+      const {id} = req.params;
+      if(!id){
+          return res.status(400).send({msg:"Please provide id"});
+      }
+      const deletedJobBoard = await jobBoard.findByIdAndDelete({_id:id});
+      res.status(200).send({msg:"Question Deleted successfully"});
+  } catch (error) {
+      res.status(500).send({msg:"Error deleting data"})
+  }
+});
+
+
+
+jobBoardRouter.patch("/patchJobBoard/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        if (!id) {
+            return res.status(400).send({ message: "Please provide a valid id" });
+        }
+
+        const {  role,company,salary,place} = req.body;
+        if (!role && !company && !salary && !place) {
+            return res.status(400).send({ message: "Please provide at least one field to update" });
+        }
+
+        const updatedJobBoard = await jobBoard.findByIdAndUpdate(
+            id,
+            {role,company,salary,place },
+            { new: true, runValidators: true }
+        );
+
+        if (!updatedJobBoard) {
+            return res.status(404).send({ message: "Question not found" });
+        }
+
+        res.status(200).send({ message: "Question updated successfully", jobBoard: updatedJobBoard });
+    } catch (error) {
+        console.error("Update error:", error.message);
+        res.status(500).send({ message: "Error updating Question", error: error.message });
+
+    }
+});
 
 
 module.exports = jobBoardRouter;

@@ -55,4 +55,53 @@ companyWiseQuestionRouter.put("/updateQuestion/:id", async (req, res) => {
 
 
 
+
+companyWiseQuestionRouter.delete("/deleteQuestion/:id",async(req,res)=>{
+    try {
+        const{id}=req.params;
+        if(!id){
+            return res.status(400).send({msg:"Please provide id"});
+        }
+        const deletedCompanyWiseQuestion = await CompanyWiseQuestion.findByIdAndDelete({_id:id});
+        res.status(200).send({msg:"Question deleted successfully"});
+    } catch (error) {
+        res.status(500).send({msg:"Error deleting question"})
+    }
+});
+
+
+companyWiseQuestionRouter.patch("/patchCompanyWiseQuestion/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        if (!id) {
+            return res.status(400).send({ message: "Please provide a valid id" });
+        }
+
+        const { question, answer } = req.body;
+        if (!question && !answer) {
+            return res.status(400).send({ message: "Please provide at least one field to update" });
+        }
+
+        const updatedCompanyWiseQuestion = await CompanyWiseQuestion.findByIdAndUpdate(
+            id,
+            { question, answer },
+            { new: true, runValidators: true }
+        );
+
+        if (!updatedCompanyWiseQuestion) {
+            return res.status(404).send({ message: "Question not found" });
+        }
+
+        res.status(200).send({ message: "Question updated successfully", question: updatedCompanyWiseQuestion });
+    } catch (error) {
+        console.error("Update error:", error.message);
+        res.status(500).send({ message: "Error updating Question", error: error.message });
+
+    }
+});
+
+
+
+
+
 module.exports = companyWiseQuestionRouter;
