@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { post } = require("../controller/jobBoardRouter");
 
-const jobBoardSchema = new mongoose.Schema({
+const schema = new mongoose.Schema({
     role:{type: String , required:true},
     company:{type: String , required:true},
     salary:{type: Number , required:true}, 
@@ -9,5 +9,6 @@ const jobBoardSchema = new mongoose.Schema({
     
 });
 
+const jobBoardSchema = mongoose.model('jobBoard', schema);
 
-module.exports = mongoose.model('jobBoard', jobBoardSchema);
+module.exports = jobBoardSchema;
