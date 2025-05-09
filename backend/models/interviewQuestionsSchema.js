@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 const { post } = require("../controller/interviewQuestionsRouter");
 
-const interviewQuestionsSchema = new mongoose.Schema({
+const schema = new mongoose.Schema({
     question: { type: String, required: true },
     answer: { type: String, required: true }
     
 });
 
 
-module.exports = mongoose.model('interviewQuestion', interviewQuestionsSchema);
+const interviewQuestionsSchema = mongoose.model('interviewQuestion', schema);
+
+module.exports = interviewQuestionsSchema;

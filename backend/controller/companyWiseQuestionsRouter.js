@@ -1,76 +1,69 @@
 const express = require('express');
-const companyWiseQuestionRouter = express.Router();
-const CompanyWiseQuestion = require('../models/companyWiseQuestionsSchema'); 
+const CompanyWiseQuestion = require('../models/companyWiseQuestionsSchema');
+const companyWiseQuestionsRouter = express.Router();
 
-companyWiseQuestionRouter.get('/companyWiseQuestion', async (req, res) => {
+companyWiseQuestionsRouter.get('/companyWiseQuestion', async (req, res) => {
     try {
         const companyWiseQuestion = [
-            { Question: 'What is the full form of HTML?', answer: 'Hypertext Markup Language' },
-            { Question: 'What is the full form of CSS?', answer: 'Cascading Style Sheets' }
+            { question: 'What is the full form of HTML?', answer: 'Hypertext Markup Language' },
+            { question: 'What is the full form of CSS?', answer: 'Cascading Style Sheets' }
         ];
 
-        res.status(200).send(companyWiseQuestion); 
+        res.status(200).json(companyWiseQuestion);
     } catch (error) {
         console.error('Error fetching questions:', error);
-        res.status(500).send({ message: 'Internal Server Error' }); 
+        res.status(500).json({ message: 'Internal Server Error' });
     }
 });
 
-companyWiseQuestionRouter.post('/postCompanyWiseQuestion', async (req, res) => {
-  try {
-      const { question, answer } = req.body;
-      const newCompanyWiseQuestion = new CompanyWiseQuestion({ question, answer });
-      await newCompanyWiseQuestion.save();
-      res.status(201).json({ message: 'Company-wise question posted successfully!', data: newCompanyWiseQuestion });
-  } catch (error) {
-      console.error('Error posting question:', error);
-      res.status(500).json({ message: 'Error posting question', error });
-  }
+companyWiseQuestionsRouter.post('/postCompanyWiseQuestion', async (req, res) => {
+    try {
+        const { question, answer } = req.body;
+        if (!question || !answer) {
+            return res.status(400).send({ msg: "Please fill all the fields" });
+        }
+        const newQuestion = new CompanyWiseQuestion({ question, answer });
+        await newQuestion.save();
+        res.status(201).json({ message: 'Company-wise question posted successfully!', question: newQuestion });
+    } catch (error) {
+        console.error('Error posting question:', error);
+        res.status(500).json({ message: 'Error posting question', error });
+    }
 });
 
-companyWiseQuestionRouter.put("/updateQuestion/:id", async (req, res) => {
+companyWiseQuestionsRouter.put('/updateCompanyWiseQuestion/:id', async (req, res) => {
     try {
         const { id } = req.params;
         if (!id) {
             return res.status(400).send({ msg: "Please provide id" });
         }
-
         const { question, answer } = req.body;
         const updatedQuestion = await CompanyWiseQuestion.findByIdAndUpdate(
             id,
             { question, answer },
-            { new: true } 
+            { new: true }
         );
-
-        if (!updatedQuestion) {
-            return res.status(404).send({ msg: "Question not found" });
-        }
-
-        res.status(200).send({ msg: "Question updated successfully", question: updatedQuestion });
+        res.status(200).send({ msg: "Data updated successfully", question: updatedQuestion });
     } catch (error) {
-        console.error('Error updating data:', error);
-        res.status(500).json({ msg: "Error updating data", error });
+        console.error(error);
+        res.status(500).send({ msg: "Error updating data" });
     }
 });
 
-
-
-
-companyWiseQuestionRouter.delete("/deleteQuestion/:id",async(req,res)=>{
+companyWiseQuestionsRouter.delete('/deleteCompanyWiseQuestion/:id', async (req, res) => {
     try {
-        const{id}=req.params;
-        if(!id){
-            return res.status(400).send({msg:"Please provide id"});
+        const { id } = req.params;
+        if (!id) {
+            return res.status(400).send({ msg: "Please provide id" });
         }
-        const deletedCompanyWiseQuestion = await CompanyWiseQuestion.findByIdAndDelete({_id:id});
-        res.status(200).send({msg:"Question deleted successfully"});
+        const deletedQuestion = await CompanyWiseQuestion.findByIdAndDelete({ _id: id });
+        res.status(200).send({ msg: "Question deleted successfully" });
     } catch (error) {
-        res.status(500).send({msg:"Error deleting question"})
+        res.status(500).send({ msg: "Error deleting data" });
     }
 });
 
-
-companyWiseQuestionRouter.patch("/patchCompanyWiseQuestion/:id", async (req, res) => {
+companyWiseQuestionsRouter.patch('/patchCompanyWiseQuestion/:id', async (req, res) => {
     try {
         const { id } = req.params;
         if (!id) {
@@ -82,26 +75,21 @@ companyWiseQuestionRouter.patch("/patchCompanyWiseQuestion/:id", async (req, res
             return res.status(400).send({ message: "Please provide at least one field to update" });
         }
 
-        const updatedCompanyWiseQuestion = await CompanyWiseQuestion.findByIdAndUpdate(
+        const updatedQuestion = await CompanyWiseQuestion.findByIdAndUpdate(
             id,
             { question, answer },
             { new: true, runValidators: true }
         );
 
-        if (!updatedCompanyWiseQuestion) {
+        if (!updatedQuestion) {
             return res.status(404).send({ message: "Question not found" });
         }
 
-        res.status(200).send({ message: "Question updated successfully", question: updatedCompanyWiseQuestion });
+        res.status(200).send({ message: "Question updated successfully", question: updatedQuestion });
     } catch (error) {
         console.error("Update error:", error.message);
         res.status(500).send({ message: "Error updating Question", error: error.message });
-
     }
 });
 
-
-
-
-
-module.exports = companyWiseQuestionRouter;
+module.exports = companyWiseQuestionsRouter;

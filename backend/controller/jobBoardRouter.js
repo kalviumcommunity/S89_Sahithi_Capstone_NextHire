@@ -1,6 +1,7 @@
 const express = require('express');
+const jobBoardSchema = require('../models/jobBoardSchema');
 const jobBoardRouter = express.Router();
-const jobBoard = require('../models/jobBoardSchema');
+
 
 jobBoardRouter.get('/jobBoard', async (req, res) => {
     try {
@@ -22,7 +23,7 @@ jobBoardRouter.post('/postJobBoard',async (req, res) => {
       if(!role || !company || !salary || !place){
         return res.status(400).send({msg:"Please fill all the fields"});
       }
-      const newJobBoard = new jobBoard ({ role, company,salary,place});
+      const newJobBoard = new jobBoardSchema ({ role, company,salary,place});
       await newJobBoard.save();
       res.status(201).json({ message: 'JobBoard posted successfully!', job: newJobBoard });
     } catch (error) {
@@ -39,7 +40,7 @@ jobBoardRouter.put("/updateJobBoard/:id",async(req,res)=>{
                   res.status(400).send({msg:"Please provide id"});
               }
               const {role,company,salary,place}=req.body;
-              const updatedJobBoard = await jobBoard.findByIdAndUpdate({_id:id},{role,company,salary,place});
+              const updatedJobBoard = await jobBoardSchema.findByIdAndUpdate({_id:id},{role,company,salary,place});
               res.status(200).send({msg:"Data updated successfully",job:updatedJobBoard});
           } catch (error) {
               console.log(error)
@@ -53,7 +54,7 @@ jobBoardRouter.delete("/deletejobBoard/:id",async(req,res)=>{
       if(!id){
           return res.status(400).send({msg:"Please provide id"});
       }
-      const deletedJobBoard = await jobBoard.findByIdAndDelete({_id:id});
+      const deletedJobBoard = await jobBoardSchema.findByIdAndDelete({_id:id});
       res.status(200).send({msg:"Question Deleted successfully"});
   } catch (error) {
       res.status(500).send({msg:"Error deleting data"})
@@ -74,7 +75,7 @@ jobBoardRouter.patch("/patchJobBoard/:id", async (req, res) => {
             return res.status(400).send({ message: "Please provide at least one field to update" });
         }
 
-        const updatedJobBoard = await jobBoard.findByIdAndUpdate(
+        const updatedJobBoard = await jobBoardSchema.findByIdAndUpdate(
             id,
             {role,company,salary,place },
             { new: true, runValidators: true }
