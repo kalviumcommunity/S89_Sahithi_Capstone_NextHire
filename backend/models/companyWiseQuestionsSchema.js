@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { post } = require("../controller/companyWiseQuestionsRouter");
 
 const companyWiseQuestionSchema = new mongoose.Schema({
     question: {

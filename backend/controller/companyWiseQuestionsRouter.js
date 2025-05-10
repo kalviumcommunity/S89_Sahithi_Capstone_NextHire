@@ -92,4 +92,28 @@ companyWiseQuestionsRouter.patch('/patchCompanyWiseQuestion/:id', async (req, re
     }
 });
 
+companyWiseQuestionsRouter.put('/companyWiseQuestion/updateQuestion/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        if (!id) {
+            return res.status(400).send({ msg: "Please provide id" });
+        }
+        const { question, answer } = req.body;
+        const Questionupdated = await CompanyWiseQuestion.findByIdAndUpdate(
+            id,
+            { question, answer },
+            { new: true, runValidators: true }
+        );
+
+        if (!updatedQuestion) {
+            return res.status(404).send({ msg: "Question not found" });
+        }
+
+        res.status(200).send({ msg: "Data updated successfully", question: updatedQuestion });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ msg: "Error updating data" });
+    }
+});
+
 module.exports = companyWiseQuestionsRouter;
