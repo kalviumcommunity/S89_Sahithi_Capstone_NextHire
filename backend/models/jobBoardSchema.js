@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { post } = require("../controller/jobBoardRouter");
 
 const schema = new mongoose.Schema({
     role:{type: String , required:true,trim:true},
