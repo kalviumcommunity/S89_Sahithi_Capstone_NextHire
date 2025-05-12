@@ -17,6 +17,10 @@ app.use("/interviewQuestion", interviewQuestionsRouter);
 app.use("/jobBoard",jobBoardRouter);
 app.use("/companyWiseQuestion",companyWiseQuestionRouter);
 
+app.get("/", (req, res) => {
+    res.send("Welcome to the NextHire API");
+});
+
 
 
 app.listen(3000,async()=>{
