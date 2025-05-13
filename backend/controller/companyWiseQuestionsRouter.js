@@ -2,6 +2,8 @@ const express = require('express');
 const CompanyWiseQuestion = require('../models/companyWiseQuestionsSchema');
 const companyWiseQuestionsRouter = express.Router();
 
+
+
 companyWiseQuestionsRouter.get('/companyWiseQuestion', async (req, res) => {
     try {
         const companyWiseQuestion = [
@@ -15,6 +17,7 @@ companyWiseQuestionsRouter.get('/companyWiseQuestion', async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
+
 
 companyWiseQuestionsRouter.post('/postCompanyWiseQuestion', async (req, res) => {
     try {

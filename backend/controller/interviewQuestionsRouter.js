@@ -2,6 +2,9 @@ const express = require('express');
 const interviewQuestionsSchema = require('../models/interviewQuestionsSchema');
 const interviewQuestionsRouter = express.Router();
 
+
+
+
 interviewQuestionsRouter.get('/interviewQuestion', async (req, res) => {
     try {
         const interviewQuestion = [
@@ -15,6 +18,7 @@ interviewQuestionsRouter.get('/interviewQuestion', async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
+
 
 interviewQuestionsRouter.post('/postInterviewQuestion', async (req, res) => {
     try {

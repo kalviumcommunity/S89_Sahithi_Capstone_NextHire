@@ -3,6 +3,10 @@ const jobBoardSchema = require('../models/jobBoardSchema');
 const jobBoardRouter = express.Router();
 
 
+
+jobBoardRouter.put("/updateJobBoard/:id",async(req,res)=>{
+
+
 jobBoardRouter.get('/jobBoard', async (req, res) => {
     try {
         const jobBoard = [
@@ -52,6 +56,7 @@ jobBoardRouter.delete("/deletejobBoard/:id",async(req,res)=>{
 
 
 jobBoardRouter.patch("/patchJobBoard/:id", async (req, res) => {
+
     try {
         const { id } = req.params;
         if (!id) {
