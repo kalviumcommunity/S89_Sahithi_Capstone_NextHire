@@ -4,12 +4,12 @@ const companyWiseQuestionsRouter = express.Router();
 
 companyWiseQuestionsRouter.get('/companyWiseQuestion', async (req, res) => {
     try {
-        const companyWiseQuestion = [
+        const companyWiseQuestions = [
             { question: 'What is the full form of HTML?', answer: 'Hypertext Markup Language' },
             { question: 'What is the full form of CSS?', answer: 'Cascading Style Sheets' }
         ];
 
-        res.status(200).json(companyWiseQuestion);
+        res.status(200).json(companyWiseQuestions);
     } catch (error) {
         console.error('Error fetching questions:', error);
         res.status(500).json({ message: 'Internal Server Error' });
