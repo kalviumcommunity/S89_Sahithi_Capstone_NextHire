@@ -2,6 +2,10 @@ const express = require('express');
 const interviewQuestionsSchema = require('../models/interviewQuestionsSchema');
 const interviewQuestionsRouter = express.Router();
 
+
+
+
+
 interviewQuestionsRouter.get('/interviewQuestion', async (req, res) => {
     try {
         const interviewQuestion = [
