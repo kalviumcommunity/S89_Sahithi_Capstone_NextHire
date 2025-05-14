@@ -2,7 +2,7 @@ const express = require('express');
 const CompanyWiseQuestion = require('../models/companyWiseQuestionsSchema');
 const companyWiseQuestionsRouter = express.Router();
 
-companyWiseQuestionRouter.get('/companyWiseQuestion', async (req, res) => {
+companyWiseQuestionsRouter.get('/companyWiseQuestion', async (req, res) => {
     try {
         const companyWiseQuestion = [
             { Question: 'What is the full form of HTML?', answer: 'Hypertext Markup Language' },
