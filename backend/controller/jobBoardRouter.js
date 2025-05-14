@@ -2,13 +2,13 @@ const express = require('express');
 const jobBoardSchema = require('../models/jobBoardSchema');
 const jobBoardRouter = express.Router();
 
-
 jobBoardRouter.get('/jobBoard', async (req, res) => {
     try {
         const jobBoard = [
-            {role:'Software Engineer',company:'infosys', salary:'60000', place:'Hyderabad' },
-            {role:'Software Engineer',company:'infosys', salary:'75000', place:'Hyderabad'}
+            {role:'Software Engineer',company:'infosys', Salary:'6lakhs', place:'Hyderabad' },
+            {role:'Software Engineer',company:'infosys', Salary:'6lakhs', place:'Hyderabad'}
         ];
+
 
         res.status(200).json(jobBoard); 
     } catch (error) {
@@ -16,6 +16,8 @@ jobBoardRouter.get('/jobBoard', async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' }); 
     }
 });
+
+
 
 jobBoardRouter.post('/postJobBoard',async (req, res) => {
     try {
@@ -52,6 +54,7 @@ jobBoardRouter.delete("/deletejobBoard/:id",async(req,res)=>{
 
 
 jobBoardRouter.patch("/patchJobBoard/:id", async (req, res) => {
+
     try {
         const { id } = req.params;
         if (!id) {
