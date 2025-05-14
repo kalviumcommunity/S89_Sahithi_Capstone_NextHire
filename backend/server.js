@@ -17,7 +17,9 @@ app.use("/api", interviewQuestionsRouter);
 app.use("/jobBoard",jobBoardRouter);
 app.use("/companyWiseQuestion",companyWiseQuestionRouter);
 
-
+app.get("/", (req, res) => {
+    res.send("Welcome to the Interview Preparation API");
+});
 
 const PORT = 3000; // Or any port you prefer
 app.listen(PORT,async()=>{
