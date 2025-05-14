@@ -3,7 +3,7 @@ const interviewQuestionsSchema = require('../models/interviewQuestionsSchema');
 const interviewQuestionsRouter = express.Router();
 
 
-interviewQuestionRouter.get('/interviewQuestion', async (req, res) => {
+interviewQuestionsRouter.get('/interviewQuestion', async (req, res) => {
     try {
         const interviewQuestion = [
             { Question: 'What is the full form of HTML?', answer: 'Hypertext Markup Language' },
