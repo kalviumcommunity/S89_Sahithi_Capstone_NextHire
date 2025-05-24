@@ -93,3 +93,8 @@ Here’s a more concise version of your 30-day development plan for **NextHire**
 - **AI & Machine Learning**: Python-based AI models (NLP for Interview, Resume Parsing)
 - **APIs**: LinkedIn, Indeed, Glassdoor for job listings
 - **Hosting**: AWS / Heroku for deployment
+
+
+## Backend Deployment link:
+
+-  https://s89-sahithi-capstone-nexthire-xe6w.onrender.com
