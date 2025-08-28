@@ -1,0 +1,84 @@
+[
+  {
+    "company": "Google",
+    "role": "Software Engineer",
+    "categories": {
+      "DSA": [
+        "Find the longest substring without repeating characters.",
+        "Implement a trie (prefix tree)."
+      ],
+      "System Design": [
+        "Design a URL shortening service like bit.ly.",
+        "How would you design Google Docs?"
+      ],
+      "Behavioral": [
+        "Tell me about a time you faced a challenge working in a team.",
+        "Why do you want to work at Google?"
+      ]
+    }
+  },
+  {
+    "company": "Amazon",
+    "role": "SDE-1",
+    "categories": {
+      "DSA": [
+        "Find the maximum sum subarray (Kadane's Algorithm).",
+        "Check if a binary tree is a valid BST."
+      ],
+      "Leadership Principles": [
+        "Tell me about a time you took ownership of a project.",
+        "How have you shown customer obsession in your work?"
+      ]
+    }
+  },
+  {
+    "company": "Microsoft",
+    "role": "Software Engineer",
+    "categories": {
+      "DSA": [
+        "Detect a cycle in a directed graph.",
+        "Reverse a linked list in groups of k."
+      ],
+      "System Design": [
+        "Design a chat application like WhatsApp.",
+        "How would you scale a file storage service?"
+      ]
+    }
+  },
+  {
+    "company": "Facebook (Meta)",
+    "role": "Backend Engineer",
+    "categories": {
+      "DSA": [
+        "Clone a graph with random pointers.",
+        "Design and implement LRU cache."
+      ],
+      "System Design": [
+        "Design News Feed system.",
+        "Design scalable notification system."
+      ],
+      "Behavioral": [
+        "How do you handle feedback?",
+        "Describe a project where you made a major technical decision."
+      ]
+    }
+  },
+  {
+    "company": "Netflix",
+    "role": "Full Stack Developer",
+    "categories": {
+      "DSA": [
+        "Implement debounce and throttle in JavaScript.",
+        "Find duplicate elements in an array."
+      ],
+      "System Design": [
+        "Design a video streaming service.",
+        "Design Netflix's content recommendation engine."
+      ],
+      "Cultural Fit": [
+        "How do you align with Netflix's culture of freedom and responsibility?",
+        "Describe a time you took initiative beyond your role."
+      ]
+    }
+  }
+]

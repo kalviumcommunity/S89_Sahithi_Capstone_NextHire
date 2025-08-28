@@ -1,0 +1,411 @@
+.post-card {
+    background: white;
+    border: 1px solid #dbdbdb;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-avatar img,
+.avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatar-placeholder {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.author-details h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #262626;
+}
+
+.author-details span {
+    font-size: 14px;
+    color: #8e8e8e;
+}
+
+.edited-indicator {
+    font-style: italic;
+    color: #8e8e8e;
+}
+
+.post-actions-menu {
+    display: flex;
+    gap: 8px;
+}
+
+.edit-btn,
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    background: #f8f9fa;
+}
+
+.post-content {
+    padding: 0 20px 16px;
+}
+
+.post-content p {
+    margin: 0 0 16px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #262626;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.post-image {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+.post-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.post-actions {
+    display: flex;
+    gap: 24px;
+    padding: 12px 20px;
+    border-top: 1px solid #efefef;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    font-size: 14px;
+    color: #8e8e8e;
+}
+
+.action-btn:hover {
+    background: #f8f9fa;
+}
+
+.action-btn.liked {
+    color: #ed4956;
+}
+
+.action-icon {
+    font-size: 18px;
+}
+
+.action-count {
+    font-weight: 600;
+    color: #262626;
+}
+
+.comments-section {
+    border-top: 1px solid #efefef;
+    padding: 16px 20px;
+}
+
+.comment-form {
+    margin-bottom: 16px;
+}
+
+.comment-input-container {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.comment-input-container input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #dbdbdb;
+    border-radius: 24px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.comment-input-container input:focus {
+    border-color: #0095f6;
+}
+
+.comment-submit-btn {
+    background: #0095f6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.comment-submit-btn:hover:not(:disabled) {
+    background: #1877f2;
+}
+
+.comment-submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.comment {
+    display: flex;
+    gap: 12px;
+}
+
+.comment-avatar img,
+.avatar-placeholder-small {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatar-placeholder-small {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.comment-author {
+    font-size: 14px;
+    font-weight: 600;
+    color: #262626;
+}
+
+.comment-time {
+    font-size: 12px;
+    color: #8e8e8e;
+}
+
+.comment-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #262626;
+    word-wrap: break-word;
+}
+
+/* Edit Form Styles */
+.edit-form {
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.edit-textarea {
+    width: 100%;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+}
+
+.edit-textarea:focus {
+    border-color: #0095f6;
+}
+
+.char-count {
+    text-align: right;
+    font-size: 12px;
+    color: #8e8e8e;
+    margin-bottom: 12px;
+}
+
+.edit-image-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #dbdbdb;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+}
+
+.edit-image-input:focus {
+    border-color: #0095f6;
+}
+
+.edit-image-preview {
+    margin-bottom: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 200px;
+}
+
+.edit-image-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.edit-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.cancel-edit-btn,
+.save-edit-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancel-edit-btn {
+    background: transparent;
+    border: 1px solid #dbdbdb;
+    color: #262626;
+}
+
+.cancel-edit-btn:hover {
+    background: #f8f9fa;
+}
+
+.save-edit-btn {
+    background: #0095f6;
+    border: none;
+    color: white;
+}
+
+.save-edit-btn:hover:not(:disabled) {
+    background: #1877f2;
+}
+
+.save-edit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .post-header,
+    .post-content,
+    .post-actions,
+    .comments-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    .post-content p {
+        font-size: 15px;
+    }
+    
+    .action-btn {
+        padding: 6px 8px;
+        gap: 6px;
+    }
+    
+    .action-icon {
+        font-size: 16px;
+    }
+    
+    .comment-input-container {
+        gap: 8px;
+    }
+    
+    .comment-input-container input {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+    
+    .comment-submit-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    .edit-form {
+        padding: 12px;
+    }
+
+    .edit-textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .edit-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .cancel-edit-btn,
+    .save-edit-btn {
+        width: 100%;
+        padding: 10px;
+    }
+}

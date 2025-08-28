@@ -1,0 +1,123 @@
+[
+    {
+      "question": "What is a RESTful API?",
+      "answer": "A RESTful API uses HTTP methods to interact with resources following the principles of REST architecture.",
+      "category": "Web API",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is the difference between PUT and POST?",
+      "answer": "POST is used to create a new resource, while PUT is used to update or create a resource at a specific URL.",
+      "category": "Web API",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "Explain the purpose of HTTP status codes.",
+      "answer": "HTTP status codes indicate the result of an HTTP request, such as 200 OK, 404 Not Found, or 500 Internal Server Error.",
+      "category": "Web API",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is a middleware in Express.js?",
+      "answer": "Middleware functions are functions that have access to the request, response, and the next function in the request-response cycle.",
+      "category": "Node.js",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "Explain event delegation in JavaScript.",
+      "answer": "Event delegation is a technique where a single event listener is added to a parent element to handle events on its child elements.",
+      "category": "JavaScript",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What is the virtual DOM?",
+      "answer": "The virtual DOM is a lightweight copy of the real DOM used by React to optimize updates.",
+      "category": "React",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is the difference between == and === in JavaScript?",
+      "answer": "== compares values with type coercion, while === compares values and types strictly.",
+      "category": "JavaScript",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is the use of useEffect in React?",
+      "answer": "useEffect is a React Hook that runs side effects like data fetching or DOM updates after render.",
+      "category": "React",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What is MongoDB?",
+      "answer": "MongoDB is a NoSQL document database that stores data in flexible, JSON-like documents.",
+      "category": "Database",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is indexing in MongoDB?",
+      "answer": "Indexing improves the speed of search operations on a database collection.",
+      "category": "Database",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What is a promise in JavaScript?",
+      "answer": "A promise is an object representing the eventual completion or failure of an asynchronous operation.",
+      "category": "JavaScript",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "Explain async/await in JavaScript.",
+      "answer": "async/await allows writing asynchronous code that looks synchronous, making it easier to read and manage.",
+      "category": "JavaScript",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What is JWT and how is it used?",
+      "answer": "JWT (JSON Web Token) is a compact token used for securely transmitting information between parties, often for authentication.",
+      "category": "Security",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What is CORS and why is it important?",
+      "answer": "CORS (Cross-Origin Resource Sharing) is a security feature that restricts web pages from making requests to a different domain.",
+      "category": "Web API",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What is the difference between SQL and NoSQL?",
+      "answer": "SQL databases are relational and use structured query language, while NoSQL databases are non-relational and use flexible schemas.",
+      "category": "Database",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What is a closure in JavaScript?",
+      "answer": "A closure is a function that remembers variables from its lexical scope even when the function is executed outside that scope.",
+      "category": "JavaScript",
+      "difficulty": "Hard"
+    },
+    {
+      "question": "What is useState in React?",
+      "answer": "useState is a hook that lets you add state to functional components in React.",
+      "category": "React",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "Explain the role of controllers in MVC architecture.",
+      "answer": "Controllers handle incoming requests, process business logic, and return appropriate responses in MVC architecture.",
+      "category": "Web Architecture",
+      "difficulty": "Medium"
+    },
+    {
+      "question": "What is the purpose of .env files?",
+      "answer": ".env files are used to store environment variables, such as API keys or configuration values, outside of source code.",
+      "category": "Node.js",
+      "difficulty": "Easy"
+    },
+    {
+      "question": "What are React keys and why are they important?",
+      "answer": "Keys help React identify which items have changed, are added, or are removed in a list to improve performance.",
+      "category": "React",
+      "difficulty": "Medium"
+    }
+  ]
+  

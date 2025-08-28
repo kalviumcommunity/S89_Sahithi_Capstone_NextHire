@@ -1,0 +1,128 @@
+.center-content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* Vertical center */
+  align-items: center;       /* Horizontal center */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f172a; /* or your preferred background */
+}
+
+.dashboard-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 24px;      /* Add horizontal padding for equal left/right space */
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-header {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin: 4px 0 0 0;
+}
+
+
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for 4 cards */
+  gap: 24px;
+  justify-items: center;
+  align-items: stretch;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Dashboard Feed */
+.dashboard-feed {
+  margin-top: 32px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .dashboard-cards {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+    max-width: 400px;
+  }
+
+  .dashboard-feed {
+    margin-top: 24px;
+  }
+}
+
+.dashboard-card {
+  min-width: 180px;
+  max-width: 250px;
+  background: #e9f6ff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 24px;
+  text-align: center;
+  transition: box-shadow 0.2s, background 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+  background: #e6f7ff;
+}
+
+.dashboard-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #3182ce;
+  margin-bottom: 12px;
+}
+
+.dashboard-card-desc {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 16px;
+}
+
+.dashboard-card-action {
+  display: inline-block;
+  padding: 8px 18px;
+  background: #3182ce;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.dashboard-card-action:hover {
+  background: #225ea8;
+}
+

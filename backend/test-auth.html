@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auth Test</title>
+</head>
+<body>
+    <h1>Authentication Test</h1>
+    
+    <div>
+        <h2>Signup Test</h2>
+        <button onclick="testSignup()">Test Signup</button>
+        <div id="signupResult"></div>
+    </div>
+    
+    <div>
+        <h2>Login Test</h2>
+        <button onclick="testLogin()">Test Login</button>
+        <div id="loginResult"></div>
+    </div>
+
+    <div>
+        <h2>Connection Test</h2>
+        <button onclick="testConnection()">Test Backend Connection</button>
+        <div id="connectionResult"></div>
+    </div>
+
+    <script>
+        async function testSignup() {
+            try {
+                console.log('Testing signup...');
+                const testData = {
+                    email: 'test' + Date.now() + '@example.com',
+                    password: 'password123',
+                    username: 'testuser' + Date.now(),
+                    fullName: 'Test User'
+                };
+
+                console.log('Sending data:', testData);
+
+                const response = await fetch('http://localhost:5000/api/auth/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testData)
+                });
+
+                console.log('Response status:', response.status);
+                console.log('Response headers:', response.headers);
+
+                const data = await response.json();
+                document.getElementById('signupResult').innerHTML =
+                    `<pre>Status: ${response.status}\n${JSON.stringify(data, null, 2)}</pre>`;
+                console.log('Signup result:', data);
+            } catch (error) {
+                document.getElementById('signupResult').innerHTML =
+                    `<pre>Error: ${error.message}</pre>`;
+                console.error('Signup error:', error);
+            }
+        }
+
+        async function testLogin() {
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: 'test@example.com',
+                        password: 'password123'
+                    })
+                });
+                
+                const data = await response.json();
+                document.getElementById('loginResult').innerHTML = 
+                    `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                console.log('Login result:', data);
+            } catch (error) {
+                document.getElementById('loginResult').innerHTML = 
+                    `<pre>Error: ${error.message}</pre>`;
+                console.error('Login error:', error);
+            }
+        }
+
+        async function testConnection() {
+            try {
+                console.log('Testing backend connection...');
+                const response = await fetch('http://localhost:5000/api/test');
+                const data = await response.json();
+                document.getElementById('connectionResult').innerHTML =
+                    `<pre>✅ Backend Connected!\nStatus: ${response.status}\nResponse: ${JSON.stringify(data, null, 2)}</pre>`;
+                console.log('Connection test result:', data);
+            } catch (error) {
+                document.getElementById('connectionResult').innerHTML =
+                    `<pre>❌ Backend Connection Failed!\nError: ${error.message}</pre>`;
+                console.error('Connection test error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

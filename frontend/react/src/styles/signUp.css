@@ -1,0 +1,61 @@
+/* Add this to your existing login.css or create a new signup.css */
+.navigation-buttons {
+  margin-top: 1rem;
+}
+
+.navigation-buttons button {
+  padding: 0.8rem;
+  background: #6a11cb;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.navigation-buttons button:hover {
+  background: #2575fc;
+}
+/* Signup.css */
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+  font-family: sans-serif;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 10px;
+}
+
+.signup-form input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.signup-form button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.signup-form button:hover {
+  background-color: #27ae60;
+}
+
+/* Error message styling */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
