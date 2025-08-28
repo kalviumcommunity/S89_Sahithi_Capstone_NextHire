@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "capstone-backend",
   "version": "1.0.0",
   "description": "Backend for capstone project with follow and chat features",
@@ -23,16 +22,5 @@
     "node-fetch": "^3.3.2",
     "nodemon": "^3.1.10",
     "socket.io": "^4.8.1"
-=======
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0",
-    "mongoose": "^8.13.2",
-    "nodemon": "^3.1.10"
-  },
-  "scripts": {
-    "start": "node server.js"
->>>>>>> f7a228e295525be971f5921a81983eb8f92dbadb
   }
 }

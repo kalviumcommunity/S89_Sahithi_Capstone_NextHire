@@ -2,7 +2,6 @@ const express = require('express');
 const jobBoardSchema = require('../models/jobBoardSchema');
 const jobBoardRouter = express.Router();
 
-<<<<<<< HEAD
 
 jobBoardRouter.get('/jobBoard', async (req, res) => {
     try {
@@ -11,16 +10,6 @@ jobBoardRouter.get('/jobBoard', async (req, res) => {
             {role:'Software Engineer',company:'infosys', salary:'75000', place:'Hyderabad'}
         ];
 
-=======
-jobBoardRouter.get('/jobBoard', async (req, res) => {
-    try {
-        const jobBoard = [
-            {role:'Software Engineer',company:'infosys', Salary:'6lakhs', place:'Hyderabad' },
-            {role:'Software Engineer',company:'infosys', Salary:'6lakhs', place:'Hyderabad'}
-        ];
-
-
->>>>>>> f7a228e295525be971f5921a81983eb8f92dbadb
         res.status(200).json(jobBoard); 
     } catch (error) {
         console.error('Error fetching questions:', error);
@@ -28,11 +17,6 @@ jobBoardRouter.get('/jobBoard', async (req, res) => {
     }
 });
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f7a228e295525be971f5921a81983eb8f92dbadb
 jobBoardRouter.post('/postJobBoard',async (req, res) => {
     try {
       const {role,company,salary,place} = req.body;
@@ -68,10 +52,6 @@ jobBoardRouter.delete("/deletejobBoard/:id",async(req,res)=>{
 
 
 jobBoardRouter.patch("/patchJobBoard/:id", async (req, res) => {
-<<<<<<< HEAD
-=======
-
->>>>>>> f7a228e295525be971f5921a81983eb8f92dbadb
     try {
         const { id } = req.params;
         if (!id) {
